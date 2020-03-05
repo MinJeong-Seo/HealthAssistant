@@ -1,0 +1,91 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.hardcopy.retroband"
+4    android:versionCode="3"
+5    android:versionName="1.0.2" >
+6
+7    <uses-sdk
+7-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:7:5-47
+8        android:minSdkVersion="14"
+8-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:7:5-47
+9        android:targetSdkVersion="14" />
+9-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:7:15-44
+10
+11    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+11-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:9:5-74
+11-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:9:22-71
+12    <uses-permission android:name="android.permission.BLUETOOTH" />
+12-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:10:5-68
+12-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:10:22-65
+13
+14    <!--
+15    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+16    <uses-permission android:name="com.google.android.gm.permission.READ_CONTENT_PROVIDER"/>
+17    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+18    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+19    <uses-permission android:name="android.permission.INTERNET" />
+20    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+21    -->
+22    <application
+22-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:20:5-52:19
+23        android:allowBackup="true"
+23-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:21:9-35
+24        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+24-->[com.android.support:support-compat:28.0.0] C:\Users\slow\.gradle\caches\transforms-2\files-2.1\b73d0db3c489aeab8b531c92b0313ef9\support-compat-28.0.0\AndroidManifest.xml:22:18-91
+25        android:debuggable="true"
+26        android:icon="@drawable/ic_launcher"
+26-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:22:9-45
+27        android:label="@string/app_name"
+27-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:23:9-41
+28        android:theme="@style/AppTheme" >
+28-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:24:9-40
+29
+30        <!-- Activity -->
+31        <activity
+31-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:27:9-36:20
+32            android:name="com.hardcopy.retroband.MainActivity"
+32-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:28:13-63
+33            android:configChanges="keyboardHidden|orientation|screenSize"
+33-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:31:13-74
+34            android:label="@string/app_name"
+34-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:29:13-45
+35            android:launchMode="singleTask" >
+35-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:30:13-44
+36            <intent-filter>
+36-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:32:13-35:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:33:17-69
+37-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:33:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:34:17-77
+39-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:34:27-74
+40            </intent-filter>
+41        </activity>
+42        <activity
+42-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:38:9-42:20
+43            android:name="com.hardcopy.retroband.DeviceListActivity"
+43-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:38:19-53
+44            android:configChanges="keyboardHidden|orientation|screenSize"
+44-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:41:19-80
+45            android:label="@string/select_device"
+45-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:39:19-56
+46            android:theme="@android:style/Theme.Dialog" >
+46-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:40:19-62
+47        </activity>
+48
+49        <!-- Service -->
+50        <service
+50-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:45:9-50:19
+51            android:name="com.hardcopy.retroband.service.RetroBandService"
+51-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:46:13-76
+52            android:configChanges="keyboardHidden|orientation|screenSize"
+52-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:49:13-74
+53            android:icon="@drawable/ic_launcher"
+53-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:47:13-49
+54            android:label="@string/service_name" >
+54-->C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:48:13-50
+55        </service>
+56    </application>
+57
+58</manifest>
