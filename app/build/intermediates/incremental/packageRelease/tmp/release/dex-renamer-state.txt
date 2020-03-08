@@ -1,4 +1,4 @@
-#Mon Mar 02 18:33:04 KST 2020
+#Sun Mar 08 14:29:48 KST 2020
 base.0=C\:\\Users\\slow\\Desktop\\RetroBand\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

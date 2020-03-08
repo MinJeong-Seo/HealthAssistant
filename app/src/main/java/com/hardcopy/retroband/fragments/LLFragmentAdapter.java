@@ -94,7 +94,7 @@ public class LLFragmentAdapter extends FragmentPagerAdapter {
 			
 		} else if(position==FRAGMENT_POS_BALANCE){
 			if(mBalanceFragment==null){
-				mBalanceFragment = new BalanceFragment(mContext, mFragmentListener);
+				mBalanceFragment = new BalanceFragment(mContext, mFragmentListener, mHandler);
 			}
 			fragment = mBalanceFragment;
 

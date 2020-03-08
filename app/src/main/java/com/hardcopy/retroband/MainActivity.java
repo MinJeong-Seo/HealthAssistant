@@ -21,7 +21,9 @@ import java.util.TimerTask;
 
 import com.hardcopy.retroband.contents.ActivityReport;
 import com.hardcopy.retroband.contents.ContentObject;
+import com.hardcopy.retroband.fragments.BalanceFragment;
 import com.hardcopy.retroband.fragments.GraphFragment;
+import com.hardcopy.retroband.fragments.IBalanceListener;
 import com.hardcopy.retroband.fragments.IFragmentListener;
 import com.hardcopy.retroband.fragments.LLFragmentAdapter;
 import com.hardcopy.retroband.fragments.TimelineFragment;
@@ -55,7 +57,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends FragmentActivity implements ActionBar.TabListener, IFragmentListener {
+public class MainActivity extends FragmentActivity implements ActionBar.TabListener, IFragmentListener, IBalanceListener {
 
     // Debugging
     private static final String TAG = "RetroWatchActivity";
@@ -424,7 +426,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 				ActivityReport ar = (ActivityReport)msg.obj;
 				if(ar != null) {
 					TimelineFragment frg = (TimelineFragment) mSectionsPagerAdapter.getItem(LLFragmentAdapter.FRAGMENT_POS_TIMELINE);
+					BalanceFragment Bfrg = (BalanceFragment) mSectionsPagerAdapter.getItem(LLFragmentAdapter.FRAGMENT_POS_BALANCE);
 					frg.showActivityReport(ar);
+					Bfrg.showActivityReport(ar);
 				}
 				break;
 			

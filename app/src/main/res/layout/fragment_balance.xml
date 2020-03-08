@@ -1,0 +1,106 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_balance"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/AppTheme.FragmentContainer"
+    tools:context=".MainActivity$BalanceFragment" >
+
+    <!-- Contents container -->
+    <LinearLayout
+        android:id="@+id/layout_Bstatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <!-- Realtime calorie, walks -->
+        <LinearLayout
+            android:id="@+id/layout_Bstatus_hori"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <!-- Calorie -->
+            <LinearLayout
+                android:id="@+id/layout_Bcalorie"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/text_Btitle_calorie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip"
+                    android:text="@string/title_calorie"
+                    android:textColor="#bbbbbb"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:id="@+id/text_Bcontent_calorie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip"
+                    android:textColor="#777777"
+                    android:textSize="36sp"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+
+            <!-- Walks -->
+            <LinearLayout
+                android:id="@+id/layout_works"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/text_title_works"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip"
+                    android:text="@string/title_walks"
+                    android:textColor="#bbbbbb"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:id="@+id/text_content_works"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip"
+                    android:textColor="#777777"
+                    android:textSize="36sp"
+                    android:gravity="center"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <!-- Seperator -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="12dip"
+            android:background="@color/grayd"
+            />
+
+
+        <view class="com.hardcopy.retroband.fragments.RenderingStatistics"
+            android:id="@+id/render_Bstatistics"
+            android:layout_width="match_parent"
+            android:layout_height="250dip"
+            android:background="#ffffff" >
+        </view>
+
+
+
+    </LinearLayout>
+
+</FrameLayout>
