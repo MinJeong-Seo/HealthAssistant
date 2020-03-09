@@ -91,10 +91,28 @@ public class Analyzer {
 		fAvgVelocity /= res.length;
 		fAvgVelocity *= 3.6f; // convert m/s to km/h
 		nLastDetectedTime = res[res.length-1];
-		
+
+		/////////////////내가 쓴 코드///////////////////
+
+		try{
+			if(res[0]=='9' && res[1]=='7'){
+				ar.mBalanceCount = 1;
+				throw new Exception();
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			nStepCount += res.length;//원래있던부분
+			ar.mShakeActionCount = nStepCount;//원래있던부분
+		}
+
+		/*
 		nStepCount += res.length;
 		ar.mShakeActionCount = nStepCount;
-		
+		 */
+		////////////////////////////////////////////////////
+
 		Logs.d("#");
 		Logs.d("# of Xdata: "+nX.length+", shake: "+ar.mShakeActionCount);
 		

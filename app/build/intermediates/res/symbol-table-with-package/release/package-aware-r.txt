@@ -266,6 +266,7 @@ id text2
 id text_Bcontent_calorie
 id text_Btitle_calorie
 id text_background_service
+id text_content_balance
 id text_content_calorie
 id text_content_walks
 id text_content_works

@@ -57,6 +57,7 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
     private RenderingStatistics mRenderStatistics;
     private TextView mCalorieText = null;
     private TextView mWalksText = null;
+    private TextView mBalanceText = null; //내가쓴부분
     //private ListView mTimelineList = null;
     private TimelineAdapter mTimelineListAdapter = null;
 
@@ -92,6 +93,8 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
         mCalorieText.setText("0");
         mWalksText = (TextView) rootView.findViewById(R.id.text_content_works);
         mWalksText.setText("0");
+        mBalanceText=(TextView) rootView.findViewById(R.id.text_content_balance); //내가쓴부분
+        mBalanceText.setText("0"); //내가쓴부분
 
 
         // TODO: If you need to show activity data as list, use below code
@@ -163,6 +166,7 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
             String str = String.format("%,.0f", object.mSumOfCalorie);
             mCalorieText.setText(str);
             mWalksText.setText(Integer.toString(object.mShakeActionCount));
+            mBalanceText.setText(Integer.toString(object.mBalanceCount));//내가쓴코드
         }
     }
 

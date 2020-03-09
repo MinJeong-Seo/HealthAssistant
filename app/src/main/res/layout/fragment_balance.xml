@@ -91,6 +91,15 @@
             android:background="@color/grayd"
             />
 
+        <TextView
+            android:id="@+id/text_content_balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:textColor="#777777"
+            android:textSize="36sp"
+            android:gravity="center"
+            />
 
         <view class="com.hardcopy.retroband.fragments.RenderingStatistics"
             android:id="@+id/render_Bstatistics"
