@@ -343,7 +343,7 @@ public class RetroBandService extends Service implements IContentManagerListener
 	{
 		@Override
 		public void handleMessage(Message msg) {
-			
+
 			switch(msg.what) {
 			// Bluetooth state changed
 			case BluetoothManager.MESSAGE_STATE_CHANGE:
@@ -381,9 +381,10 @@ public class RetroBandService extends Service implements IContentManagerListener
 			// Received packets from remote
 			case BluetoothManager.MESSAGE_READ:
 				//Log.d(TAG, "Service - MESSAGE_READ: ");
-				
+
 				byte[] readBuf = (byte[]) msg.obj;
 				int readCount = msg.arg1;
+
 				// construct commands from the valid bytes in the buffer
 				if(mTransactionReceiver != null) {
 					mTransactionReceiver.setByteArray(readBuf, readCount);

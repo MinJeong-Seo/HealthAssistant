@@ -16,5 +16,5 @@ public class ActivityReport {
 	public int mShakeActionCount = 0;	// Walk count
 	public double mCalorie = 0;			// Calorie consumes for 1 sec.
 	public double mSumOfCalorie = 0;	// Total calorie consumed for this session
-	public int mBalanceCount = 0; //내가쓴부분
+	public static int mBalanceCount = 0; //내가쓴부분
 }

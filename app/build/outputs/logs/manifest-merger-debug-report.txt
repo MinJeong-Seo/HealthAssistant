@@ -129,7 +129,7 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\slow\.grad
 	android:label
 		ADDED from C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:23:9-41
 	android:icon
-		ADDED from C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:22:9-45
+		ADDED from C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:22:9-38
 	android:allowBackup
 		ADDED from C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:21:9-35
 	android:theme
@@ -171,6 +171,6 @@ ADDED from C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:45:9
 	android:configChanges
 		ADDED from C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:49:13-74
 	android:icon
-		ADDED from C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:47:13-49
+		ADDED from C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:47:13-42
 	android:name
 		ADDED from C:\Users\slow\Desktop\RetroBand\app\src\main\AndroidManifest.xml:46:13-76

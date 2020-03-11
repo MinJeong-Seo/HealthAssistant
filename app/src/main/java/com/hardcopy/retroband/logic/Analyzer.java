@@ -93,7 +93,7 @@ public class Analyzer {
 		nLastDetectedTime = res[res.length-1];
 
 		/////////////////내가 쓴 코드///////////////////
-
+/*
 		try{
 			if(res[0]=='9' && res[1]=='7'){
 				ar.mBalanceCount = 1;
@@ -106,11 +106,11 @@ public class Analyzer {
 			nStepCount += res.length;//원래있던부분
 			ar.mShakeActionCount = nStepCount;//원래있던부분
 		}
+*/
 
-		/*
 		nStepCount += res.length;
 		ar.mShakeActionCount = nStepCount;
-		 */
+
 		////////////////////////////////////////////////////
 
 		Logs.d("#");

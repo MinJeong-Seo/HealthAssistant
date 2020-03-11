@@ -17,6 +17,8 @@
 package com.hardcopy.retroband.bluetooth;
 
 import java.util.ArrayList;
+
+import com.hardcopy.retroband.contents.ActivityReport;
 import com.hardcopy.retroband.contents.ContentObject;
 import android.os.Handler;
 
@@ -93,32 +95,58 @@ public class TransactionReceiver {
 	 * @param buffer		byte array to parse
 	 * @param count			byte array size
 	 */
+	final static ActivityReport activityReport = new ActivityReport();	//내가쓴부분
+
 	public void parseStream(byte[] buffer, int count) {
-		if(buffer != null && buffer.length > 0 && count > 0) {
-			for(int i=0; i < buffer.length && i < count; i++) {
-				
-				// Parse received data
-				// Protocol description -----------------------------------------------------------
-				// [*] Accel data
-				// 		[Start byte: 2byte]
-				//		[Data: 6byte: 3 integer data]... 
-				//		[End byte: 2byte]
-				
-				switch(mParseMode) {
-				
-				case PARSE_MODE_WAIT_START_BYTE:
-					if(buffer[i] == Transaction.TRANSACTION_START_BYTE_2
-							&& mCacheStart == Transaction.TRANSACTION_START_BYTE) {
-						//Logs.d("Read data: TRANSACTION_START_BYTE");
-						mParseMode = PARSE_MODE_WAIT_DATA;
-						if(mContentObject == null) {
-							mContentObject = new ContentObject(ContentObject.CONTENT_TYPE_ACCEL, -1, 0);
-							mContentObject.mTimeInMilli = System.currentTimeMillis();
-						}
-					} else {
-						mCacheStart = buffer[i];
-					}
+		if(buffer[0]==57 && buffer[1]==55){	//내가쓴부분시작
+			switch(buffer[2]){
+				case 48:
+					activityReport.mBalanceCount=0;
 					break;
+				case 49:
+					activityReport.mBalanceCount=1;
+					break;
+				case 50:
+					activityReport.mBalanceCount=2;
+					break;
+				case 51:
+					activityReport.mBalanceCount=3;
+					break;
+				case 52:
+					activityReport.mBalanceCount=4;
+					break;
+				case 53:
+					activityReport.mBalanceCount=5;
+					break;
+			}
+			//activityReport.mBalanceCount=1;	//내가쓴부분
+		}		//내가쓴부분끝
+		else {		//내가쓴부분
+			if (buffer != null && buffer.length > 0 && count > 0) {
+				for (int i = 0; i < buffer.length && i < count; i++) {
+
+					// Parse received data
+					// Protocol description -----------------------------------------------------------
+					// [*] Accel data
+					// 		[Start byte: 2byte]
+					//		[Data: 6byte: 3 integer data]...
+					//		[End byte: 2byte]
+
+					switch (mParseMode) {
+
+						case PARSE_MODE_WAIT_START_BYTE:
+							if (buffer[i] == Transaction.TRANSACTION_START_BYTE_2
+									&& mCacheStart == Transaction.TRANSACTION_START_BYTE) {
+								//Logs.d("Read data: TRANSACTION_START_BYTE");
+								mParseMode = PARSE_MODE_WAIT_DATA;
+								if (mContentObject == null) {
+									mContentObject = new ContentObject(ContentObject.CONTENT_TYPE_ACCEL, -1, 0);
+									mContentObject.mTimeInMilli = System.currentTimeMillis();
+								}
+							} else {
+								mCacheStart = buffer[i];
+							}
+							break;
 				/* Disabled: 
 				case PARSE_MODE_WAIT_COMMAND:
 					Logs.d("Read data: PARSE_MODE_WAIT_COMMAND = " + String.format("%02X ", buffer[i]));
@@ -137,7 +165,7 @@ public class TransactionReceiver {
 					}	// End of switch()
 					break;
 				*/
-				case PARSE_MODE_WAIT_DATA:
+						case PARSE_MODE_WAIT_DATA:
 					/*
 					 * TODO: Check end byte (sometimes data byte is same with end byte)
 					 * 
@@ -153,57 +181,58 @@ public class TransactionReceiver {
 						}
 					}
 					*/
-					
-					// Forced to fill 20 accel data
-					if(mContentObject != null && mContentObject.mAccelIndex > ContentObject.DATA_COUNT - 1) {
-						//Logs.d("Read data: TRANSACTION_END_BYTE");
-						mParseMode = PARSE_MODE_COMPLETED;
-						break;
+
+							// Forced to fill 20 accel data
+							if (mContentObject != null && mContentObject.mAccelIndex > ContentObject.DATA_COUNT - 1) {
+								//Logs.d("Read data: TRANSACTION_END_BYTE");
+								mParseMode = PARSE_MODE_COMPLETED;
+								break;
+							}
+
+							// Remote device(Arduino) uses 2-byte integer.
+							// We must cache 2byte to make single value
+							if (mCached) {
+								int tempData = 0x00000000;
+								int tempData2 = 0x00000000;
+								boolean isNegative = false;
+
+								if (mCacheData == 0x0000007f)    // Recover first byte (To avoid null byte, 0x00 was converted to 0x7f)
+									mCacheData = 0x00000000;
+								if ((mCacheData & 0x00000080) == 0x00000080)    // Check first bit which is 'sign' bit
+									isNegative = true;
+								if (buffer[i] == 0x01)    // Recover second byte (To avoid null byte, 0x00 was converted to 0x01)
+									buffer[i] = 0x00;
+
+								tempData2 |= (buffer[i] & 0x000000ff);
+								tempData = (((mCacheData << 8) | tempData2) & 0x00007FFF);
+
+								//Logs.d(String.format("%02X ", mCacheData) + String.format("%02X ", tempData2) + String.format("%02X ", tempData));
+
+								// negative number uses 2's complement math. Set first 9 bits as 1.
+								if (isNegative)
+									tempData = (tempData | 0xFFFF8000);
+
+								// Recovered integer value. Remember this value.
+								if (mContentObject != null) {
+									mContentObject.setAccelData(tempData);
+								}
+								mCacheData = 0x00000000;
+								mCached = false;
+							} else {
+								mCacheData |= (buffer[i] & 0x000000ff);        // Remember first byte
+								mCached = true;
+							}
+							break;
+
+					}    // End of switch()
+
+					if (mParseMode == PARSE_MODE_COMPLETED) {
+						pushObject();
+						reset();
 					}
-					
-					// Remote device(Arduino) uses 2-byte integer.
-					// We must cache 2byte to make single value
-					if(mCached) {
-						int tempData = 0x00000000;
-						int tempData2 = 0x00000000;
-						boolean isNegative = false;
-						
-						if(mCacheData == 0x0000007f)	// Recover first byte (To avoid null byte, 0x00 was converted to 0x7f)
-							mCacheData = 0x00000000;
-						if( (mCacheData & 0x00000080) == 0x00000080 )	// Check first bit which is 'sign' bit
-							isNegative = true;
-						if(buffer[i] == 0x01) 	// Recover second byte (To avoid null byte, 0x00 was converted to 0x01)
-							buffer[i] = 0x00;
-						
-						tempData2 |= (buffer[i] & 0x000000ff);
-						tempData = (((mCacheData << 8) | tempData2) & 0x00007FFF);
-						
-						//Logs.d(String.format("%02X ", mCacheData) + String.format("%02X ", tempData2) + String.format("%02X ", tempData));
-						
-						// negative number uses 2's complement math. Set first 9 bits as 1.
-						if(isNegative)
-							tempData = (tempData | 0xFFFF8000);
-						
-						// Recovered integer value. Remember this value.
-						if(mContentObject != null) {
-							mContentObject.setAccelData(tempData);
-						}
-						mCacheData = 0x00000000;
-						mCached = false;
-					} else {
-						mCacheData |= (buffer[i] & 0x000000ff);		// Remember first byte
-						mCached = true;
-					}
-					break;
-					
-				}	// End of switch()
-				
-				if(mParseMode == PARSE_MODE_COMPLETED) {
-					pushObject();
-					reset();
-				}
-			}	// End of for loop
-		}	// End of if()
+				}    // End of for loop
+			}    // End of if()
+		}
 	}
 	
 	/**
