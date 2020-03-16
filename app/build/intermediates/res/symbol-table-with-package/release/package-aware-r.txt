@@ -175,6 +175,7 @@ dimen subtitle_outline_width
 dimen subtitle_shadow_offset
 dimen subtitle_shadow_radius
 drawable form_button_selector
+drawable form_grid_border
 drawable ic_launcher
 drawable logo
 drawable notification_action_background
@@ -200,6 +201,11 @@ id actions
 id all
 id app_name
 id async
+id balance_center
+id balance_l1
+id balance_l2
+id balance_r1
+id balance_r2
 id blocking
 id bottom
 id button_scan
@@ -228,6 +234,7 @@ id italic
 id layout_Bcalorie
 id layout_Bstatus
 id layout_Bstatus_hori
+id layout_balance
 id layout_calorie
 id layout_monitoring
 id layout_status
@@ -271,6 +278,7 @@ id text_content_calorie
 id text_content_walks
 id text_content_works
 id text_desc_render1
+id text_title_balance
 id text_title_calorie
 id text_title_render1
 id text_title_statistics

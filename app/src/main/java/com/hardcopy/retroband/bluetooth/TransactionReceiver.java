@@ -20,6 +20,9 @@ import java.util.ArrayList;
 
 import com.hardcopy.retroband.contents.ActivityReport;
 import com.hardcopy.retroband.contents.ContentObject;
+import com.hardcopy.retroband.fragments.BalanceFragment;
+
+import android.graphics.Color;
 import android.os.Handler;
 
 /**
@@ -96,27 +99,39 @@ public class TransactionReceiver {
 	 * @param count			byte array size
 	 */
 	final static ActivityReport activityReport = new ActivityReport();	//내가쓴부분
+	final static BalanceFragment color_change=new BalanceFragment();//내가쓴부분
 
 	public void parseStream(byte[] buffer, int count) {
 		if(buffer[0]==57 && buffer[1]==55){	//내가쓴부분시작
+			color_change.mBalanceLevel_center.setBackgroundColor(Color.LTGRAY);//내가쓴부분
+			color_change.mBalanceLevel_l2.setBackgroundColor(Color.LTGRAY);//내가쓴부분
+			color_change.mBalanceLevel_l1.setBackgroundColor(Color.LTGRAY);//내가쓴부분
+			color_change.mBalanceLevel_R1.setBackgroundColor(Color.LTGRAY);//내가쓴부분
+			color_change.mBalanceLevel_R2.setBackgroundColor(Color.LTGRAY);//내가쓴부분
 			switch(buffer[2]){
 				case 48:
 					activityReport.mBalanceCount=0;
+					color_change.mBalanceLevel_center.setBackgroundColor(Color.GREEN);//내가쓴부분
 					break;
 				case 49:
 					activityReport.mBalanceCount=1;
+					color_change.mBalanceLevel_l2.setBackgroundColor(Color.RED);//내가쓴부분
 					break;
 				case 50:
 					activityReport.mBalanceCount=2;
+					color_change.mBalanceLevel_l1.setBackgroundColor(Color.YELLOW);//내가쓴부분
 					break;
 				case 51:
 					activityReport.mBalanceCount=3;
+					color_change.mBalanceLevel_center.setBackgroundColor(Color.GREEN);//내가쓴부분
 					break;
 				case 52:
 					activityReport.mBalanceCount=4;
+					color_change.mBalanceLevel_R1.setBackgroundColor(Color.YELLOW);//내가쓴부분
 					break;
 				case 53:
 					activityReport.mBalanceCount=5;
+					color_change.mBalanceLevel_R2.setBackgroundColor(Color.RED);//내가쓴부분
 					break;
 			}
 			//activityReport.mBalanceCount=1;	//내가쓴부분

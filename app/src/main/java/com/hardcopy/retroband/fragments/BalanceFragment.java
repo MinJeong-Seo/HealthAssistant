@@ -30,6 +30,7 @@ import com.hardcopy.retroband.logic.Analyzer;
 import com.hardcopy.retroband.utils.Logs;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -58,6 +59,11 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
     private TextView mCalorieText = null;
     private TextView mWalksText = null;
     private TextView mBalanceText = null; //내가쓴부분
+    public static TextView mBalanceLevel_l2=null;//내가쓴부분
+    public static TextView mBalanceLevel_l1=null;//내가쓴부분
+    public static TextView mBalanceLevel_center=null;//내가쓴부분
+    public static TextView mBalanceLevel_R1=null;//내가쓴부분
+    public static TextView mBalanceLevel_R2=null;//내가쓴부분
     //private ListView mTimelineList = null;
     private TimelineAdapter mTimelineListAdapter = null;
 
@@ -95,6 +101,11 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
         mWalksText.setText("0");
         mBalanceText=(TextView) rootView.findViewById(R.id.text_content_balance); //내가쓴부분
         mBalanceText.setText("0"); //내가쓴부분
+        mBalanceLevel_l2=(TextView)rootView.findViewById(R.id.balance_l2);//내가쓴부분
+        mBalanceLevel_l1=(TextView)rootView.findViewById(R.id.balance_l1);//내가쓴부분
+        mBalanceLevel_center=(TextView)rootView.findViewById(R.id.balance_center);//내가쓴부분
+        mBalanceLevel_R1=(TextView)rootView.findViewById(R.id.balance_r1);//내가쓴부분
+        mBalanceLevel_R2=(TextView)rootView.findViewById(R.id.balance_r2);//내가쓴부분
 
 
         // TODO: If you need to show activity data as list, use below code
@@ -167,6 +178,7 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
             mCalorieText.setText(str);
             mWalksText.setText(Integer.toString(object.mShakeActionCount));
             mBalanceText.setText(Integer.toString(object.mBalanceCount));//내가쓴코드
+            //mBalanceLevel_l2.setBackgroundColor(Color.RED);//내가쓴코드
         }
     }
 

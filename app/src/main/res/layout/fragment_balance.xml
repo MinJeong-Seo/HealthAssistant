@@ -1,54 +1,51 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_balance"
+    style="@style/AppTheme.FragmentContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/AppTheme.FragmentContainer"
-    tools:context=".MainActivity$BalanceFragment" >
+    tools:context=".MainActivity$BalanceFragment">
 
     <!-- Contents container -->
     <LinearLayout
         android:id="@+id/layout_Bstatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <!-- Realtime calorie, walks -->
         <LinearLayout
             android:id="@+id/layout_Bstatus_hori"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
             <!-- Calorie -->
             <LinearLayout
                 android:id="@+id/layout_Bcalorie"
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/text_Btitle_calorie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:padding="5dip"
                     android:text="@string/title_calorie"
                     android:textColor="#bbbbbb"
-                    android:textStyle="bold"
-                    android:textSize="12sp"
-                    android:gravity="center"
-                    />
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/text_Bcontent_calorie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:padding="5dip"
                     android:textColor="#777777"
-                    android:textSize="36sp"
-                    android:gravity="center"
-                    />
+                    android:textSize="36sp" />
             </LinearLayout>
 
             <!-- Walks -->
@@ -57,28 +54,27 @@
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/text_title_works"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:padding="5dip"
                     android:text="@string/title_walks"
                     android:textColor="#bbbbbb"
-                    android:textStyle="bold"
-                    android:textSize="12sp"
-                    android:gravity="center"
-                    />
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/text_content_works"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:padding="5dip"
                     android:textColor="#777777"
-                    android:textSize="36sp"
-                    android:gravity="center"
-                    />
+                    android:textSize="36sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -88,26 +84,103 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="12dip"
-            android:background="@color/grayd"
-            />
+            android:background="@color/grayd" />
 
-        <TextView
-            android:id="@+id/text_content_balance"
+        <!-- Balance -->
+        <LinearLayout
+            android:id="@+id/layout_balance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dip"
-            android:textColor="#777777"
-            android:textSize="36sp"
-            android:gravity="center"
-            />
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <view class="com.hardcopy.retroband.fragments.RenderingStatistics"
+            <TextView
+                android:id="@+id/text_title_balance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dip"
+                android:text="Balance"
+                android:textColor="#bbbbbb"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_content_balance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dip"
+                android:textColor="#777777"
+                android:textSize="36sp" />
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dip"
+                android:orientation="horizontal"
+                android:rowCount="0"
+                android:columnCount="5"
+                android:background="@drawable/form_grid_border"
+                android:weightSum="5">
+                <TextView
+                    android:id="@+id/balance_l2"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/graya"
+                    android:text="L2"
+                    android:textSize="40sp"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/balance_l1"
+                    android:layout_column="1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/graya"
+                    android:text="L1"
+                    android:textSize="40sp"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/balance_center"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/graya"
+                    android:text="Center"
+                    android:textSize="20sp"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/balance_r1"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/graya"
+                    android:text="R1"
+                    android:textSize="40sp"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/balance_r2"
+                    android:layout_column="4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/graya"
+                    android:text="R2"
+                    android:textSize="40sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <view
             android:id="@+id/render_Bstatistics"
+            class="com.hardcopy.retroband.fragments.RenderingStatistics"
             android:layout_width="match_parent"
             android:layout_height="250dip"
-            android:background="#ffffff" >
-        </view>
-
+            android:background="#ffffff"></view>
 
 
     </LinearLayout>
