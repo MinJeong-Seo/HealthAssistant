@@ -173,6 +173,13 @@
                     android:textSize="40sp"
                     android:gravity="center"/>
             </LinearLayout>
+            <Button
+                android:id="@+id/button_alarm"
+                android:layout_height="50dp"
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:text="Sound"/>
         </LinearLayout>
 
         <view
