@@ -18,12 +18,20 @@ package com.hardcopy.retroband.bluetooth;
 
 import java.util.ArrayList;
 
+import com.hardcopy.retroband.MainActivity;
+import com.hardcopy.retroband.R;
 import com.hardcopy.retroband.contents.ActivityReport;
 import com.hardcopy.retroband.contents.ContentObject;
+import com.hardcopy.retroband.contents.SoundManager;
 import com.hardcopy.retroband.fragments.BalanceFragment;
 
 import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.os.Build;
 import android.os.Handler;
+import android.widget.Button;
+
 
 /**
  * Parse stream and extract accel data
@@ -44,7 +52,7 @@ public class TransactionReceiver {
 	
 	private int mParseMode = PARSE_MODE_WAIT_START_BYTE;
 	private ContentObject mContentObject = null;
-	
+
 	
 	
 	public TransactionReceiver(Handler h) {
@@ -100,6 +108,7 @@ public class TransactionReceiver {
 	 */
 	final static ActivityReport activityReport = new ActivityReport();	//내가쓴부분
 	final static BalanceFragment color_change=new BalanceFragment();//내가쓴부분
+	final static BalanceFragment sound_change=new BalanceFragment();//내가쓴부분
 
 	public void parseStream(byte[] buffer, int count) {
 		if(buffer[0]==57 && buffer[1]==55){	//내가쓴부분시작
@@ -120,6 +129,11 @@ public class TransactionReceiver {
 				case 50:
 					activityReport.mBalanceCount=2;
 					color_change.mBalanceLevel_l1.setBackgroundColor(Color.YELLOW);//내가쓴부분
+					//내가쓴부분시작
+					if(sound_change.play==true){
+						sound_change.playSoundId=sound_change.soundManager.playSound(0);
+					}
+					//내가쓴부분끝
 					break;
 				case 51:
 					activityReport.mBalanceCount=3;
@@ -128,13 +142,17 @@ public class TransactionReceiver {
 				case 52:
 					activityReport.mBalanceCount=4;
 					color_change.mBalanceLevel_R1.setBackgroundColor(Color.YELLOW);//내가쓴부분
+					//내가쓴부분시작
+					if(sound_change.play==true){
+						sound_change.playSoundId=sound_change.soundManager.playSound(1);
+					}
+					//내가쓴부분끝
 					break;
 				case 53:
 					activityReport.mBalanceCount=5;
 					color_change.mBalanceLevel_R2.setBackgroundColor(Color.RED);//내가쓴부분
 					break;
 			}
-			//activityReport.mBalanceCount=1;	//내가쓴부분
 		}		//내가쓴부분끝
 		else {		//내가쓴부분
 			if (buffer != null && buffer.length > 0 && count > 0) {

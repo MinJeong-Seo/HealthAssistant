@@ -24,8 +24,8 @@ public class SoundManager {
     }
 
     public int playSound(int index) { //효과음 재생
-        int streamVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-        return mSoundPool.play(mSoundPoolMap.get(index), streamVolume, streamVolume, 1, 0, 1f);
+        //int streamVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+        return mSoundPool.play(mSoundPoolMap.get(index), 1f, 1f, 1, 0, 1f);
     }
 
     public void stopSound(int streamId) {

@@ -38,6 +38,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,15 +69,18 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
     public static TextView mBalanceLevel_center = null;//내가쓴부분
     public static TextView mBalanceLevel_R1 = null;//내가쓴부분
     public static TextView mBalanceLevel_R2 = null;//내가쓴부분
+    private TextView mButtonOnOff = null;//내가쓴부분
+
     //private ListView mTimelineList = null;
     private TimelineAdapter mTimelineListAdapter = null;
 
-    //AlarmSound 내가쓴부분
-    SoundPool soundPool;
-    SoundManager soundManager;
-    Button button;
-    boolean play;
-    int playSoundId;
+
+    //AlarmSound 내가쓴부분, public static 추가
+    public static SoundPool soundPool;
+    public static SoundManager soundManager;
+    public static Button button;
+    public static boolean play=false;
+    public static int playSoundId;
 
 
     // Auto-refresh timer
@@ -118,6 +122,8 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
         mBalanceLevel_center = (TextView) rootView.findViewById(R.id.balance_center);//내가쓴부분
         mBalanceLevel_R1 = (TextView) rootView.findViewById(R.id.balance_r1);//내가쓴부분
         mBalanceLevel_R2 = (TextView) rootView.findViewById(R.id.balance_r2);//내가쓴부분
+        mButtonOnOff=(TextView) rootView.findViewById(R.id.button_onOff);//내가쓴부분
+        mButtonOnOff.setText("false");
 
 
         // TODO: If you need to show activity data as list, use below code
@@ -128,6 +134,7 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
 		mTimelineListAdapter.setAdapterParams(this);
 		mTimelineList.setAdapter(mTimelineListAdapter);
 		*/
+
 
         //AlarmSound 내가쓴부분
         button = rootView.findViewById(R.id.button_alarm);
@@ -144,15 +151,18 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
         }
         soundManager = new SoundManager(mContext, soundPool);
         soundManager.addSound(0, R.raw.alarm_01);
+        soundManager.addSound(1,R.raw.alarm_02);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!play) {
-                    playSoundId = soundManager.playSound(0);
+                    //playSoundId = soundManager.playSound(0);
                     play = true;
+                    mButtonOnOff.setText("true");
                 } else {
-                    soundManager.pauseSound(0);
+                    //soundManager.pauseSound(playSoundId);
                     play = false;
+                    mButtonOnOff.setText("false");
                 }
             }
         });

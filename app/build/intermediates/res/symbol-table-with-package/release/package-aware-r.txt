@@ -208,6 +208,8 @@ id balance_r1
 id balance_r2
 id blocking
 id bottom
+id button_alarm
+id button_onOff
 id button_scan
 id button_time_interval
 id cancel_action
@@ -321,6 +323,8 @@ layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 menu main
+raw alarm_01
+raw alarm_02
 string action_settings
 string app_name
 string bt_cmd_sending_error

@@ -28,6 +28,10 @@
         "source": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
+        "merged": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\build\\intermediates\\res\\merged\\release\\raw_alarm_02.mp3.flat",
+        "source": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\src\\main\\res\\raw\\alarm_02.mp3"
+    },
+    {
         "merged": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_media_action.xml.flat",
         "source": "C:\\Users\\slow\\.gradle\\caches\\transforms-2\\files-2.1\\7ba19d4c13a915d31338854ea04490b4\\support-media-compat-28.0.0\\res\\layout\\notification_media_action.xml"
     },
@@ -94,6 +98,10 @@
     {
         "merged": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_template_media_custom.xml.flat",
         "source": "C:\\Users\\slow\\.gradle\\caches\\transforms-2\\files-2.1\\7ba19d4c13a915d31338854ea04490b4\\support-media-compat-28.0.0\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\build\\intermediates\\res\\merged\\release\\raw_alarm_01.mp3.flat",
+        "source": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\src\\main\\res\\raw\\alarm_01.mp3"
     },
     {
         "merged": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_template_icon_group.xml.flat",

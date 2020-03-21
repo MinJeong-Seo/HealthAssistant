@@ -88,6 +88,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private Timer mRefreshTimer = null;
 
 
+
     /*****************************************************
      *	 Overrided methods
      ******************************************************/
