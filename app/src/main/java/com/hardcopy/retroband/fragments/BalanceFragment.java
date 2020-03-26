@@ -112,18 +112,18 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
 
 
         mCalorieText = (TextView) rootView.findViewById(R.id.text_Bcontent_calorie);
-        mCalorieText.setText("0");
+        mCalorieText.setText("DEADLIFT");
         mWalksText = (TextView) rootView.findViewById(R.id.text_content_works);
         mWalksText.setText("0");
-        mBalanceText = (TextView) rootView.findViewById(R.id.text_content_balance); //내가쓴부분
-        mBalanceText.setText("0"); //내가쓴부분
+        //mBalanceText = (TextView) rootView.findViewById(R.id.text_content_balance); //내가쓴부분
+        //mBalanceText.setText("0"); //내가쓴부분
         mBalanceLevel_l2 = (TextView) rootView.findViewById(R.id.balance_l2);//내가쓴부분
         mBalanceLevel_l1 = (TextView) rootView.findViewById(R.id.balance_l1);//내가쓴부분
         mBalanceLevel_center = (TextView) rootView.findViewById(R.id.balance_center);//내가쓴부분
         mBalanceLevel_R1 = (TextView) rootView.findViewById(R.id.balance_r1);//내가쓴부분
         mBalanceLevel_R2 = (TextView) rootView.findViewById(R.id.balance_r2);//내가쓴부분
         mButtonOnOff=(TextView) rootView.findViewById(R.id.button_onOff);//내가쓴부분
-        mButtonOnOff.setText("false");
+        mButtonOnOff.setText("Sound : OFF");
 
 
         // TODO: If you need to show activity data as list, use below code
@@ -152,17 +152,19 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
         soundManager = new SoundManager(mContext, soundPool);
         soundManager.addSound(0, R.raw.alarm_01);
         soundManager.addSound(1,R.raw.alarm_02);
+        soundManager.addSound(2,R.raw.alarm_11);
+        soundManager.addSound(3,R.raw.alarm_22);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!play) {
                     //playSoundId = soundManager.playSound(0);
                     play = true;
-                    mButtonOnOff.setText("true");
+                    mButtonOnOff.setText("Sound : ON");
                 } else {
                     //soundManager.pauseSound(playSoundId);
                     play = false;
-                    mButtonOnOff.setText("false");
+                    mButtonOnOff.setText("Sound : OFF");
                 }
             }
         });
@@ -226,10 +228,10 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
      */
     public void showActivityReport(ActivityReport object) {
         if (object != null) {
-            String str = String.format("%,.0f", object.mSumOfCalorie);
-            mCalorieText.setText(str);
+            //String str = String.format("%,.0f", object.mSumOfCalorie);
+            //mCalorieText.setText(str);
             mWalksText.setText(Integer.toString(object.mShakeActionCount));
-            mBalanceText.setText(Integer.toString(object.mBalanceCount));//내가쓴코드
+            //mBalanceText.setText(Integer.toString(object.mBalanceCount));//내가쓴코드
             //mBalanceLevel_l2.setBackgroundColor(Color.RED);//내가쓴코드
         }
     }

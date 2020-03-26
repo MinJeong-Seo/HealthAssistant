@@ -31,6 +31,8 @@
     
     <string name="title_calorie">Calorie(Cal)</string>
     <string name="title_walks">Walks</string>
+    <string name="title_works">Works</string>
+    <string name="title_event">Event</string>
     
     <string name="title_time_interval">Time interval</string>
     

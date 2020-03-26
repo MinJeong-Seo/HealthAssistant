@@ -275,7 +275,6 @@ id text2
 id text_Bcontent_calorie
 id text_Btitle_calorie
 id text_background_service
-id text_content_balance
 id text_content_calorie
 id text_content_walks
 id text_content_works
@@ -325,6 +324,8 @@ layout notification_template_part_time
 menu main
 raw alarm_01
 raw alarm_02
+raw alarm_11
+raw alarm_22
 string action_settings
 string app_name
 string bt_cmd_sending_error
@@ -351,6 +352,7 @@ string status_bar_notification_info_overflow
 string title_balance
 string title_calorie
 string title_day
+string title_event
 string title_graph
 string title_hour
 string title_ll_settings
@@ -365,6 +367,7 @@ string title_statistics
 string title_time_interval
 string title_timeline
 string title_walks
+string title_works
 style AppBaseTheme
 style AppTheme
 style AppTheme_ConnectionInfoContainer

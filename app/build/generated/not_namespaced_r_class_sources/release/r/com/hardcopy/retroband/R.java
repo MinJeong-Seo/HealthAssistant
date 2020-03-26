@@ -453,27 +453,26 @@ public final class R {
     public static final int text_Bcontent_calorie=0x7f050052;
     public static final int text_Btitle_calorie=0x7f050053;
     public static final int text_background_service=0x7f050054;
-    public static final int text_content_balance=0x7f050055;
-    public static final int text_content_calorie=0x7f050056;
-    public static final int text_content_walks=0x7f050057;
-    public static final int text_content_works=0x7f050058;
-    public static final int text_desc_render1=0x7f050059;
-    public static final int text_title_balance=0x7f05005a;
-    public static final int text_title_calorie=0x7f05005b;
-    public static final int text_title_render1=0x7f05005c;
-    public static final int text_title_statistics=0x7f05005d;
-    public static final int text_title_walks=0x7f05005e;
-    public static final int text_title_works=0x7f05005f;
-    public static final int text_weight=0x7f050060;
-    public static final int time=0x7f050061;
-    public static final int timeline_info1=0x7f050062;
-    public static final int timeline_info2=0x7f050063;
-    public static final int timeline_info3=0x7f050064;
-    public static final int timeline_item_container=0x7f050065;
-    public static final int title=0x7f050066;
-    public static final int title_new_devices=0x7f050067;
-    public static final int title_paired_devices=0x7f050068;
-    public static final int top=0x7f050069;
+    public static final int text_content_calorie=0x7f050055;
+    public static final int text_content_walks=0x7f050056;
+    public static final int text_content_works=0x7f050057;
+    public static final int text_desc_render1=0x7f050058;
+    public static final int text_title_balance=0x7f050059;
+    public static final int text_title_calorie=0x7f05005a;
+    public static final int text_title_render1=0x7f05005b;
+    public static final int text_title_statistics=0x7f05005c;
+    public static final int text_title_walks=0x7f05005d;
+    public static final int text_title_works=0x7f05005e;
+    public static final int text_weight=0x7f05005f;
+    public static final int time=0x7f050060;
+    public static final int timeline_info1=0x7f050061;
+    public static final int timeline_info2=0x7f050062;
+    public static final int timeline_info3=0x7f050063;
+    public static final int timeline_item_container=0x7f050064;
+    public static final int title=0x7f050065;
+    public static final int title_new_devices=0x7f050066;
+    public static final int title_paired_devices=0x7f050067;
+    public static final int top=0x7f050068;
   }
   public static final class integer {
     public static final int cancel_button_image_alpha=0x7f060000;
@@ -511,6 +510,8 @@ public final class R {
   public static final class raw {
     public static final int alarm_01=0x7f090000;
     public static final int alarm_02=0x7f090001;
+    public static final int alarm_11=0x7f090002;
+    public static final int alarm_22=0x7f090003;
   }
   public static final class string {
     public static final int action_settings=0x7f0a0000;
@@ -539,20 +540,22 @@ public final class R {
     public static final int title_balance=0x7f0a0017;
     public static final int title_calorie=0x7f0a0018;
     public static final int title_day=0x7f0a0019;
-    public static final int title_graph=0x7f0a001a;
-    public static final int title_hour=0x7f0a001b;
-    public static final int title_ll_settings=0x7f0a001c;
-    public static final int title_month=0x7f0a001d;
-    public static final int title_other_devices=0x7f0a001e;
-    public static final int title_paired_devices=0x7f0a001f;
-    public static final int title_render1=0x7f0a0020;
-    public static final int title_section1=0x7f0a0021;
-    public static final int title_section2=0x7f0a0022;
-    public static final int title_section3=0x7f0a0023;
-    public static final int title_statistics=0x7f0a0024;
-    public static final int title_time_interval=0x7f0a0025;
-    public static final int title_timeline=0x7f0a0026;
-    public static final int title_walks=0x7f0a0027;
+    public static final int title_event=0x7f0a001a;
+    public static final int title_graph=0x7f0a001b;
+    public static final int title_hour=0x7f0a001c;
+    public static final int title_ll_settings=0x7f0a001d;
+    public static final int title_month=0x7f0a001e;
+    public static final int title_other_devices=0x7f0a001f;
+    public static final int title_paired_devices=0x7f0a0020;
+    public static final int title_render1=0x7f0a0021;
+    public static final int title_section1=0x7f0a0022;
+    public static final int title_section2=0x7f0a0023;
+    public static final int title_section3=0x7f0a0024;
+    public static final int title_statistics=0x7f0a0025;
+    public static final int title_time_interval=0x7f0a0026;
+    public static final int title_timeline=0x7f0a0027;
+    public static final int title_walks=0x7f0a0028;
+    public static final int title_works=0x7f0a0029;
   }
   public static final class style {
     public static final int AppBaseTheme=0x7f0b0000;

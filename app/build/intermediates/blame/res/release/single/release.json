@@ -48,6 +48,10 @@
         "source": "C:\\Users\\slow\\.gradle\\caches\\transforms-2\\files-2.1\\7ba19d4c13a915d31338854ea04490b4\\support-media-compat-28.0.0\\res\\layout\\notification_template_big_media.xml"
     },
     {
+        "merged": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\build\\intermediates\\res\\merged\\release\\raw_alarm_11.mp3.flat",
+        "source": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\src\\main\\res\\raw\\alarm_11.mp3"
+    },
+    {
         "merged": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\build\\intermediates\\res\\merged\\release\\layout-v21_notification_template_icon_group.xml.flat",
         "source": "C:\\Users\\slow\\.gradle\\caches\\transforms-2\\files-2.1\\b73d0db3c489aeab8b531c92b0313ef9\\support-compat-28.0.0\\res\\layout-v21\\notification_template_icon_group.xml"
     },
@@ -154,6 +158,10 @@
     {
         "merged": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "C:\\Users\\slow\\.gradle\\caches\\transforms-2\\files-2.1\\b73d0db3c489aeab8b531c92b0313ef9\\support-compat-28.0.0\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\build\\intermediates\\res\\merged\\release\\raw_alarm_22.mp3.flat",
+        "source": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\src\\main\\res\\raw\\alarm_22.mp3"
     },
     {
         "merged": "C:\\Users\\slow\\Desktop\\RetroBand\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
