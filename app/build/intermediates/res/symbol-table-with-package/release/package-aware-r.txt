@@ -206,6 +206,7 @@ id balance_l1
 id balance_l2
 id balance_r1
 id balance_r2
+id balance_tendency
 id blocking
 id bottom
 id button_alarm
@@ -238,6 +239,7 @@ id layout_Bstatus
 id layout_Bstatus_hori
 id layout_balance
 id layout_calorie
+id layout_data
 id layout_monitoring
 id layout_status
 id layout_status_hori
@@ -256,6 +258,7 @@ id notification_main_column
 id notification_main_column_container
 id pager
 id paired_devices
+id progressBar
 id render_Bstatistics
 id render_accel
 id render_statistics
@@ -281,6 +284,7 @@ id text_content_works
 id text_desc_render1
 id text_title_balance
 id text_title_calorie
+id text_title_data
 id text_title_render1
 id text_title_statistics
 id text_title_walks

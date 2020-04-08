@@ -44,8 +44,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static com.hardcopy.retroband.R.id.progressBar;
 
 public class BalanceFragment extends Fragment implements IAdapterListener {
     private static final String TAG = "BalanceFragment";
@@ -70,6 +73,8 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
     public static TextView mBalanceLevel_R1 = null;//내가쓴부분
     public static TextView mBalanceLevel_R2 = null;//내가쓴부분
     private TextView mButtonOnOff = null;//내가쓴부분
+    public static ProgressBar mProgressBar;//내가쓴부분
+    public static TextView mBalanceTendency;
 
     //private ListView mTimelineList = null;
     private TimelineAdapter mTimelineListAdapter = null;
@@ -123,7 +128,10 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
         mBalanceLevel_R1 = (TextView) rootView.findViewById(R.id.balance_r1);//내가쓴부분
         mBalanceLevel_R2 = (TextView) rootView.findViewById(R.id.balance_r2);//내가쓴부분
         mButtonOnOff=(TextView) rootView.findViewById(R.id.button_onOff);//내가쓴부분
-        mButtonOnOff.setText("Sound : OFF");
+        mButtonOnOff.setText("Sound : OFF");//내가쓴부분
+        mProgressBar=(ProgressBar) rootView.findViewById(R.id.progressBar);//내가쓴부분
+        mBalanceTendency=(TextView)rootView.findViewById(R.id.balance_tendency);
+        mBalanceTendency.setText("No Tendency");
 
 
         // TODO: If you need to show activity data as list, use below code
