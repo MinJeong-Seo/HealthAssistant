@@ -114,6 +114,11 @@ public class TransactionReceiver {
     long now=1000;//내가쓴부분
     static float balance_total=0;//내가쓴부분
     static float balance_left=0;//내가쓴부분
+    static float balance_well=0;//내가쓴부분
+    int left=0;
+    int center=0;
+    int right=0;
+    String str="0 : 0 : 0";
 
 	public void parseStream(byte[] buffer, int count) {
 		if(buffer[0]==57 && buffer[1]==55){
@@ -137,17 +142,25 @@ public class TransactionReceiver {
 					}
 					balance_total++;
 					balance_left++;
-					progressBar_change.mProgressBar.setProgress((int)
-							((balance_left/balance_total)*100));//내가쓴부분
-					if((int)((balance_left/balance_total)*100)<=40){
-						progressBar_change.mBalanceTendency.setText("Tend to tilt right");
+					left=(int) ((balance_left/balance_total)*100);
+					center=(int) ((balance_well/balance_total)*100);
+					right=(int) (100 -
+                            (((balance_left/balance_total)*100)+((balance_well/balance_total)*100)));
+
+					progressBar_change.mProgressBar.setProgress(left);//내가쓴부분
+                    progressBar_change.mProgressBar.setSecondaryProgress(left+center);//내가쓴부분
+
+					if(center>=70){
+						progressBar_change.mBalanceTendency.setText("Well Balanced");
 					}
-					else if((int)((balance_left/balance_total)*100)<60){
-						progressBar_change.mBalanceTendency.setText("No Tendency");
-					}
-					else{
+					else if(left > right){
 						progressBar_change.mBalanceTendency.setText("Tend to tilt left");
 					}
+					else{
+						progressBar_change.mBalanceTendency.setText("Tend to tilt right");
+					}
+					str=left+" : "+center+" : "+right;
+					progressBar_change.mBalanceTendPer.setText(str);
 					break;
 				case 50:
 					//activityReport.mBalanceCount=2;
@@ -160,44 +173,80 @@ public class TransactionReceiver {
 					}
 					balance_total++;
 					balance_left++;
-					progressBar_change.mProgressBar.setProgress((int)
-							((balance_left/balance_total)*100));//내가쓴부분
-					if((int)((balance_left/balance_total)*100)<=40){
-						progressBar_change.mBalanceTendency.setText("Tend to tilt right");
-					}
-					else if((int)((balance_left/balance_total)*100)<60){
-						progressBar_change.mBalanceTendency.setText("No Tendency");
-					}
-					else{
-						progressBar_change.mBalanceTendency.setText("Tend to tilt left");
-					}
-					//내가쓴부분끝
+                    left=(int) ((balance_left/balance_total)*100);
+                    center=(int) ((balance_well/balance_total)*100);
+                    right=(int) (100 -
+                            (((balance_left/balance_total)*100)+((balance_well/balance_total)*100)));
+
+                    progressBar_change.mProgressBar.setProgress(left);//내가쓴부분
+                    progressBar_change.mProgressBar.setSecondaryProgress(left+center);//내가쓴부분
+
+                    if(center>=70){
+                        progressBar_change.mBalanceTendency.setText("Well Balanced");
+                    }
+                    else if(left > right){
+                        progressBar_change.mBalanceTendency.setText("Tend to tilt left");
+                    }
+                    else{
+                        progressBar_change.mBalanceTendency.setText("Tend to tilt right");
+                    }
+                    str=left+" : "+center+" : "+right;
+                    progressBar_change.mBalanceTendPer.setText(str);
 					break;
 				case 51:
 					//activityReport.mBalanceCount=3;
 					color_change.mBalanceLevel_center.setBackgroundColor(Color.GREEN);//내가쓴부분
+                    balance_total++;
+                    balance_well++;
+                    left=(int) ((balance_left/balance_total)*100);
+                    center=(int) ((balance_well/balance_total)*100);
+                    right=(int) (100 -
+                            (((balance_left/balance_total)*100)+((balance_well/balance_total)*100)));
+
+                    progressBar_change.mProgressBar.setProgress(left);//내가쓴부분
+                    progressBar_change.mProgressBar.setSecondaryProgress(left+center);//내가쓴부분
+
+                    if(center>=70){
+                        progressBar_change.mBalanceTendency.setText("Well Balanced");
+                    }
+                    else if(left > right){
+                        progressBar_change.mBalanceTendency.setText("Tend to tilt left");
+                    }
+                    else{
+                        progressBar_change.mBalanceTendency.setText("Tend to tilt right");
+                    }
+                    str=left+" : "+center+" : "+right;
+                    progressBar_change.mBalanceTendPer.setText(str);
 					break;
 				case 52:
 					//activityReport.mBalanceCount=4;
 					color_change.mBalanceLevel_R1.setBackgroundColor(Color.YELLOW);//내가쓴부분
-                    now=System.currentTimeMillis();
+                    now=System.currentTimeMillis();//내가쓴부분
 					//내가쓴부분시작
 					if(sound_change.play==true && (now-previous)>=1000){
 						sound_change.playSoundId=sound_change.soundManager.playSound(1);
 						previous=now;
 					}
 					balance_total++;
-					progressBar_change.mProgressBar.setProgress((int)
-							((balance_left/balance_total)*100));//내가쓴부분
-					if((int)((balance_left/balance_total)*100)<=40){
-						progressBar_change.mBalanceTendency.setText("Tend to tilt right");
-					}
-					else if((int)((balance_left/balance_total)*100)<60){
-						progressBar_change.mBalanceTendency.setText("No Tendency");
-					}
-					else{
-						progressBar_change.mBalanceTendency.setText("Tend to tilt left");
-					}
+                    left=(int) ((balance_left/balance_total)*100);
+                    center=(int) ((balance_well/balance_total)*100);
+                    right=(int) (100 -
+                            (((balance_left/balance_total)*100)+((balance_well/balance_total)*100)));
+
+                    progressBar_change.mProgressBar.setProgress(left);//내가쓴부분
+                    progressBar_change.mProgressBar.setSecondaryProgress(left+center);//내가쓴부분
+
+                    if(center>=70){
+                        progressBar_change.mBalanceTendency.setText("Well Balanced");
+                    }
+                    else if(left > right){
+                        progressBar_change.mBalanceTendency.setText("Tend to tilt left");
+                    }
+                    else{
+                        progressBar_change.mBalanceTendency.setText("Tend to tilt right");
+                    }
+                    str=left+" : "+center+" : "+right;
+                    progressBar_change.mBalanceTendPer.setText(str);
 					//내가쓴부분끝
 					break;
 				case 53:
@@ -209,17 +258,25 @@ public class TransactionReceiver {
 						previous=now;
 					}
 					balance_total++;
-					progressBar_change.mProgressBar.setProgress((int)
-							((balance_left/balance_total)*100));//내가쓴부분
-					if((int)((balance_left/balance_total)*100)<=40){
-						progressBar_change.mBalanceTendency.setText("Tend to tilt right");
-					}
-					else if((int)((balance_left/balance_total)*100)<60){
-						progressBar_change.mBalanceTendency.setText("No Tendency");
-					}
-					else{
-						progressBar_change.mBalanceTendency.setText("Tend to tilt left");
-					}
+                    left=(int) ((balance_left/balance_total)*100);
+                    center=(int) ((balance_well/balance_total)*100);
+                    right=(int) (100 -
+                            (((balance_left/balance_total)*100)+((balance_well/balance_total)*100)));
+
+                    progressBar_change.mProgressBar.setProgress(left);//내가쓴부분
+                    progressBar_change.mProgressBar.setSecondaryProgress(left+center);//내가쓴부분
+
+                    if(center>=70){
+                        progressBar_change.mBalanceTendency.setText("Well Balanced");
+                    }
+                    else if(left > right){
+                        progressBar_change.mBalanceTendency.setText("Tend to tilt left");
+                    }
+                    else{
+                        progressBar_change.mBalanceTendency.setText("Tend to tilt right");
+                    }
+                    str=left+" : "+center+" : "+right;
+                    progressBar_change.mBalanceTendPer.setText(str);
 					break;
 			}
 		}		//내가쓴부분끝

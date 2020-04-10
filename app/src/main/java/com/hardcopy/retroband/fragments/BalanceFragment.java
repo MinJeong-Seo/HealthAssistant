@@ -74,7 +74,11 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
     public static TextView mBalanceLevel_R2 = null;//내가쓴부분
     private TextView mButtonOnOff = null;//내가쓴부분
     public static ProgressBar mProgressBar;//내가쓴부분
+    public static ProgressBar mLeftProgress;
+    public static ProgressBar mRightProgress;
+    public static ProgressBar mWellBalanced;
     public static TextView mBalanceTendency;
+    public static TextView mBalanceTendPer;
 
     //private ListView mTimelineList = null;
     private TimelineAdapter mTimelineListAdapter = null;
@@ -130,8 +134,11 @@ public class BalanceFragment extends Fragment implements IAdapterListener {
         mButtonOnOff=(TextView) rootView.findViewById(R.id.button_onOff);//내가쓴부분
         mButtonOnOff.setText("Sound : OFF");//내가쓴부분
         mProgressBar=(ProgressBar) rootView.findViewById(R.id.progressBar);//내가쓴부분
+        //mLeftProgress=(ProgressBar) rootView.findViewById(R.id.leftProgress);
         mBalanceTendency=(TextView)rootView.findViewById(R.id.balance_tendency);
-        mBalanceTendency.setText("No Tendency");
+        mBalanceTendency.setText("Well Balanced");
+        mBalanceTendPer=(TextView)rootView.findViewById(R.id.balance_tendper);
+        mBalanceTendPer.setText("0 : 0 : 0");
 
 
         // TODO: If you need to show activity data as list, use below code
